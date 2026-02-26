@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
+import { appTagline } from "@/lib/theme";
 
 export default function LandingPage() {
   return (
@@ -9,9 +10,7 @@ export default function LandingPage() {
           Read the web on your terms.
         </h1>
         <p className="max-w-2xl text-base text-slate-700 md:text-lg">
-          ScribeShelf is a neurodivergent-friendly reading workspace for calmer,
-          more focused deep work. Bring your articles and documents into a space
-          that supports how your brain actually works.
+          {appTagline}
         </p>
       </div>
       <div className="flex flex-wrap items-center gap-3">
