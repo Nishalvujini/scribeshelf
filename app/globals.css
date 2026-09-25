@@ -1,25 +1,61 @@
 @import "tailwindcss";
 
 :root {
-  color-scheme: light;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #fafafa;
-  color: #18181b;
+  --background: #fafaf9;
+  --foreground: #18181b;
+  --card: #ffffff;
+  --card-foreground: #18181b;
+  --primary: #18181b;
+  --primary-foreground: #fafafa;
+  --secondary: #f4f4f5;
+  --secondary-foreground: #27272a;
+  --muted: #f4f4f5;
+  --muted-foreground: #71717a;
+  --border: #e4e4e7;
+  --ring: #71717a;
+  --reading-surface: #fffdf7;
+  --radius: 0.75rem;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-ring: var(--ring);
+  --color-reading-surface: var(--reading-surface);
+  --radius-lg: var(--radius);
 }
 
 * {
   box-sizing: border-box;
+  border-color: var(--border);
 }
 
 html {
   min-width: 320px;
-  background: #fafafa;
+  background: var(--background);
 }
 
 body {
   margin: 0;
   min-height: 100dvh;
-  background: #fafafa;
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: #e4e4e7;
+  color: #18181b;
 }
 
 button,
