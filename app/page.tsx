@@ -1,26 +1,16 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { appTagline } from "@/lib/theme";
-
-export default function LandingPage() {
+export default function HomePage() {
   return (
-    <section className="space-y-6">
-      <div className="space-y-3">
-        <h1 className="text-3xl font-semibold tracking-tight text-slate-900 md:text-4xl">
-          Read the web on your terms.
-        </h1>
-        <p className="max-w-2xl text-base text-slate-700 md:text-lg">
-          {appTagline}
-        </p>
-      </div>
-      <div className="flex flex-wrap items-center gap-3">
-        <Button asChild size="lg">
-          <Link href="/app">Enter Library</Link>
-        </Button>
-        <span className="text-xs text-slate-500">
-          Phase 0 · UI shell only · No auth yet
-        </span>
-      </div>
-    </section>
+    <main className="mx-auto flex min-h-dvh max-w-5xl flex-col justify-center px-6 py-16">
+      <p className="text-sm font-medium tracking-wide text-zinc-500">
+        ScribeShelf
+      </p>
+      <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-zinc-950 sm:text-6xl">
+        Reading that adapts to you.
+      </h1>
+      <p className="mt-6 max-w-2xl text-base leading-7 text-zinc-600 sm:text-lg">
+        A focused, accessible reading workspace designed to make long-form
+        reading easier to return to and easier to finish.
+      </p>
+    </main>
   );
 }
