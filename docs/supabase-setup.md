@@ -7,6 +7,7 @@ This branch builds on the Phase 0.2 design system. It prepares configuration and
 1. Copy `.env.example` to `.env.local`.
 2. From the intended Supabase project's Connect dialog, copy its URL into `NEXT_PUBLIC_SUPABASE_URL` and its **publishable** (`sb_publishable_…`) key into `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`.
 3. Run `npm ci` and `npm run dev` with Node 24.
+4. Run `npm run check:supabase` to verify that the Auth endpoint accepts the configured public key. This read-only check loads `.env.local`, times out after 15 seconds, and does not print keys or response contents.
 
 Both settings can remain blank for the public design preview. Partial or malformed settings fail with an explicit configuration error. Legacy JWT keys are intentionally unsupported; use a publishable key. Never place secret/service-role keys in `NEXT_PUBLIC_` variables, source code, or pull requests. Runtime validation is a guard against mistakes, not a way to make public variables secret.
 
@@ -28,6 +29,6 @@ The intended starting model is a private library per signed-in reader. Before en
 
 Run `npm test`, `npm run lint -- --max-warnings=0`, `npm run typecheck`, and `npm run build`.
 
-The session tests use the real Supabase SSR client against mocked Auth responses. They check that an expired session refreshes once, both cookie destinations receive the new session, and responses prevent shared caching. They do not prove live Supabase connectivity or a completed sign-in flow. Live verification requires the intended project's public configuration and the later authentication UI.
+The session tests use the real Supabase SSR client against mocked Auth responses. They check that an expired session refreshes once, both cookie destinations receive the new session, and responses prevent shared caching. `npm run check:supabase` separately verifies live Auth connectivity. Neither check proves a completed sign-in flow or database/storage authorization; those require the later authentication UI and ownership policies.
 
 References: [Supabase SSR clients](https://supabase.com/docs/guides/auth/server-side/creating-a-client), [API keys](https://supabase.com/docs/guides/getting-started/api-keys).

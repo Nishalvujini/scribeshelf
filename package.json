@@ -11,7 +11,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "node --import tsx --test tests/*.test.ts"
+    "test": "node --import tsx --test tests/*.test.ts",
+    "check:supabase": "node --env-file-if-exists=.env.local --import tsx scripts/check-supabase.ts"
   },
   "dependencies": {
     "@supabase/ssr": "0.12.7",
