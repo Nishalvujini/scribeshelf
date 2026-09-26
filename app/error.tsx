@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 
-export default function GlobalError({
+export default function ErrorPage({
   reset,
 }: {
   error: Error & { digest?: string };
@@ -15,7 +15,7 @@ export default function GlobalError({
         ScribeShelf hit an unexpected error.
       </h1>
       <p className="mt-3 max-w-xl text-muted-foreground">
-        Your data has not been changed. Try loading this screen again.
+        This screen couldn’t load. Try again to continue.
       </p>
       <div className="mt-6">
         <Button onClick={reset}>Try again</Button>
