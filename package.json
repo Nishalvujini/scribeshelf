@@ -10,15 +10,20 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint .",
-    "typecheck": "tsc --noEmit"
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx --test tests/*.test.ts",
+    "check:supabase": "node --env-file-if-exists=.env.local --import tsx scripts/check-supabase.ts"
   },
   "dependencies": {
+    "@supabase/ssr": "0.12.7",
+    "@supabase/supabase-js": "2.117.2",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
     "lucide-react": "^0.468.0",
     "next": "16.3.3",
     "react": "19.2.0",
     "react-dom": "19.2.0",
+    "server-only": "0.0.1",
     "tailwind-merge": "^3.7.0"
   },
   "devDependencies": {
@@ -29,6 +34,7 @@
     "eslint": "^9.0.0",
     "eslint-config-next": "16.3.3",
     "tailwindcss": "^4.1.0",
+    "tsx": "4.23.15",
     "typescript": "^5.9.0"
   },
   "packageManager": "npm@10.9.2"
